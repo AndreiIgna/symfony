@@ -171,6 +171,11 @@ class Request
     protected $format;
 
     /**
+     * @var string
+     */
+    protected $acceptableFormats;
+
+    /**
      * @var \Symfony\Component\HttpFoundation\Session\SessionInterface
      */
     protected $session;
@@ -1369,6 +1374,20 @@ class Request
     public function getContentType()
     {
         return $this->getFormat($this->headers->get('CONTENT_TYPE'));
+    }
+
+    /**
+     * Gets the acceptable client formats associated with the request.
+     *
+     * @return array List of acceptable formats by the client
+     */
+    public function getAcceptableFormats()
+    {
+        if (null !== $this->acceptableFormats) {
+            return $this->acceptableFormats;
+        }
+
+        return $this->acceptableFormats = array_values(array_unique(array_filter(array_map([$this, 'getFormat'], $this->getAcceptableContentTypes()))));
     }
 
     /**
