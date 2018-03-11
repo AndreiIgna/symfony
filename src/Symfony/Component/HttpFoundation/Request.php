@@ -1387,7 +1387,7 @@ class Request
             return $this->acceptableFormats;
         }
 
-        return $this->acceptableFormats = array_values(array_unique(array_filter(array_map([$this, 'getFormat'], $this->getAcceptableContentTypes()))));
+        return $this->acceptableFormats = array_values(array_unique(array_filter(array_map(array($this, 'getFormat'), $this->getAcceptableContentTypes()))));
     }
 
     /**
