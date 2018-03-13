@@ -10,7 +10,7 @@ CHANGELOG
  * The `get()` method of the `AcceptHeader` class now takes into account the
    `*` and `*/*` default values (if they are present in the Accept HTTP header)
    when looking for items.
- * Adds `getAcceptableFormats()` for reading acceptable formats based on Accept header
+ * added `getAcceptableFormats()` for reading acceptable formats based on Accept header
 
 4.0.0
 -----
