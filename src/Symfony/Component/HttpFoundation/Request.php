@@ -171,7 +171,7 @@ class Request
     protected $format;
 
     /**
-     * @var string
+     * @var array
      */
     protected $acceptableFormats;
 
